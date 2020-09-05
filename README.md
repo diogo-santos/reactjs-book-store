@@ -3,7 +3,7 @@ Display Books through REST call to books-api
 
 ## Getting the code on your computer
 - [ ] Download and install <a href="https://nodejs.org/en/download/" target="_blank">Node.js</a>
-- [ ] Download the project or clone it from https://github.com/bryanosullivan/mastercard-fullstack-coding-challenge-20200828-DS
+- [ ] Download the project or clone it from 
 
 ```
 cd books-web
