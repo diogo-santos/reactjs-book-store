@@ -4,9 +4,11 @@ Display Books from REST call books-api
 ## Getting the code on your computer
 - [ ] Download and install <a href="https://nodejs.org/en/download/" target="_blank">Node.js</a>
 - [ ] Download the project or clone it from https://github.com/diogo-santos/reactjs-book-store
+- [ ] Download the Back-end api project https://github.com/diogo-santos/spring-book-api and follow its instructions
 
 ```
 cd reactjs-book-store
+echo "REACT_APP_API_URL=http://localhost:8080/books" >> .env.local
 npm install
 npm start
 ```
