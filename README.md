@@ -12,17 +12,10 @@ npm start
 ```
 
 #### What I have developed
-- [ ] Fetch all books
+- [ ] Fetch all books from books-api
 - [ ] Pagination component
 - [ ] Delete Book
 - [ ] View Book
 - [ ] Sort dropdown
 - [ ] Items per page dropdown
 - [ ] Testing components with react test library
-
-#### TODO
-- [ ] Deploy into Heroku
-- [ ] Add tests for component actions
-- [ ] Add api token for security
-- [ ] Internationalization using i18
-- [ ] Caching fetched results
