@@ -1,10 +1,10 @@
 # REACTJS Book Management
-Display Books from REST call books-api
+Display Books from REST calls on Book API
 
 ## Getting the code on your computer
 - [ ] Download and install <a href="https://nodejs.org/en/download/" target="_blank">Node.js</a>
 - [ ] Download the project or clone it from https://github.com/diogo-santos/reactjs-book-store
-- [ ] Download the Back-end api project https://github.com/diogo-santos/spring-book-api and follow its instructions
+- [ ] Download the Book API project from https://github.com/diogo-santos/spring-book-api and follow its instructions
 
 ```
 cd reactjs-book-store
