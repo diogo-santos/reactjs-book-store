@@ -1,6 +1,8 @@
 # REACTJS Book Management
 Display Books from REST calls on Book API
 
+Check it out at https://reactjs-book-store.herokuapp.com
+
 ## Getting the code on your computer
 - [ ] Download and install <a href="https://nodejs.org/en/download/" target="_blank">Node.js</a>
 - [ ] Download the project or clone it from https://github.com/diogo-santos/reactjs-book-store
