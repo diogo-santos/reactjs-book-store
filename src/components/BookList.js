@@ -1,4 +1,5 @@
 import React from "react";
+import unknownBook from "../images/130x180.png";
 
 function BookList(props) {
   return (
@@ -6,7 +7,7 @@ function BookList(props) {
       {props.books.map((book, i) => (
             <div className="d-flex flex-row" key={i}>
                 <div className="p-2">
-                  <img src={book.image || `${process.env.PUBLIC_URL}/130x180.png`} alt=""/>
+                  <img src={book.image || unknownBook} alt=""/>
                 </div>
                 <div className="p-2">
                     <h6>{book.title}</h6>
