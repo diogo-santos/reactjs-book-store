@@ -6,7 +6,7 @@ function BookList(props) {
       {props.books.map((book, i) => (
             <div className="d-flex flex-row" key={i}>
                 <div className="p-2">
-                  <img src={book.image || "http://via.placeholder.com/130x180"} alt=""/>
+                  <img src={book.image || `${process.env.PUBLIC_URL}/130x180.png`} alt=""/>
                 </div>
                 <div className="p-2">
                     <h6>{book.title}</h6>
