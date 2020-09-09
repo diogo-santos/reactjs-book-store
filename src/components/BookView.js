@@ -6,8 +6,7 @@ function BookView(props) {
   return (
     <div className="d-flex flex-row">
       <div className="p-2">
-        <img src={props.book.image || noCoverThumb
-        } alt="" />
+        <img src={props.book.image || noCoverThumb} width="128" alt="Front cover" />
       </div>
       <div className="p-2">
         <div>Author <span className="text-muted">{props.book.author}</span></div>
