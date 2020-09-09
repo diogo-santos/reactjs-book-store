@@ -16,7 +16,13 @@ test("renders post data", () => {
     ]
   };
 
-  const { getByText, getByTestId } = render(<BookList books={mockBooks.books} />);
+  const { getByText, getByTestId } = render(
+      <BookList 
+        books={mockBooks.books}
+        onView={()=> jest.mock()}
+        onDelete={()=> jest.mock()}
+        />
+    );
   const title = getByText(/Mock title/);
   const author = getByText(/Mock author/);
   const category = getByText(/Mock category/);

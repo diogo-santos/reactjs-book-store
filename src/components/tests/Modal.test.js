@@ -10,7 +10,7 @@ test("renders post data", () => {
     title: "Mock title",
     author: "Mock author",
     category: "Mock category",
-    publicationDate: "Mock publication date",
+    publicationDate: "2020-02-20",
     image: "Mock image url"
   };
 
@@ -24,7 +24,7 @@ test("renders post data", () => {
   const title = getByText(/Mock title/);
   const author = getByText(/Mock author/);
   const category = getByText(/Mock category/);
-  const publicationDate = getByText(/Mock publication date/);
+  const publicationDate = getByText("20/02/2020");
 
   expect(modal).toBeInTheDocument();
   expect(title).toBeInTheDocument();

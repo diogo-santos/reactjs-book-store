@@ -26,7 +26,7 @@ function BookList(props) {
                             View Book
                           </button>
                         )}
-                        {props.onView && (
+                        {props.onDelete && (
                           <button 
                             type="button" 
                             data-testid="delete-book"
