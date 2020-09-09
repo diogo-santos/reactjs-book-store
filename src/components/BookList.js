@@ -1,40 +1,55 @@
 import React from "react";
-import unknownBook from "../images/130x180.png";
+import noCoverThumb from "../images/no_cover_thumb.gif";
 
 function BookList(props) {
   return (
-    <div className="container">
+    <div className="mb-2">
       {props.books.map((book, i) => (
             <div className="d-flex flex-row" key={i}>
                 <div className="p-2">
-                  <img src={book.image || unknownBook} alt=""/>
+                  <img src={book.image || noCoverThumb} width="128" alt="Front cover"/>
                 </div>
                 <div className="p-2">
                     <h6>{book.title}</h6>
                     <div>Author <span className="text-muted">{book.author}</span></div>
                     <div>Category <span className="text-muted">{book.category}</span></div>
-                    <div className="d-flex flex-row mt-3">
-                        <button 
-                          type="button" 
-                          data-testid="view-book"
-                          className="btn btn-primary btn-sm"
-                          data-toggle="modal" data-target={`#${props.viewBookModalId}`}
-                          onClick={() => props.onView(book.id)}
-                        >
-                          View Book
-                        </button>
-                        <button 
-                          type="button" 
-                          data-testid="delete-book"
-                          className="btn btn-danger btn-sm ml-2"
-                          onClick={() => 
-                            window.confirm(`Are you sure you wish to delete ${book.title}?`) 
-                              && props.onDelete(book.id)
-                          }
-                        >
-                          Delete Book
-                        </button>
-                    </div>
+                    <div>Published <span className="text-muted">{book.publicationDate}</span></div>
+                      <div className="d-flex flex-row mt-2">
+                        {props.onView && (
+                          <button 
+                            type="button"
+                            data-testid="view-book"
+                            className="btn btn-primary btn-sm mr-2"
+                            data-toggle="modal" data-target={`#${props.viewBookModalId}`}
+                            onClick={() => props.onView(book.id)}
+                          >
+                            View Book
+                          </button>
+                        )}
+                        {props.onView && (
+                          <button 
+                            type="button" 
+                            data-testid="delete-book"
+                            className="btn btn-danger btn-sm mr-2"
+                            onClick={() => 
+                              window.confirm(`Are you sure you wish to delete ${book.title}?`) 
+                                && props.onDelete(book.id)
+                            }
+                          >
+                            Delete Book
+                          </button>
+                        )}
+                        {(props.onSelect) && (
+                          <button 
+                            type="button"
+                            data-testid="view-book"
+                            className={`btn btn-primary active btn-sm`}
+                            onClick={() => props.onSelect(book)}
+                          >
+                            Select
+                          </button>
+                        )}
+                      </div>
                 </div>
             </div>
       ))}
