@@ -5,7 +5,7 @@ import { getBooks, deleteBook } from "./services/BookService";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Title from "./components/Title";
+import Header from "./components/Header";
 import BookList from "./components/BookList";
 import Pagination from "react-js-pagination";
 import DropDown from "./components/DropDown";
@@ -127,7 +127,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Title 
+        <Header 
           title="Book Store App"
         />
         { this.state.alertMessage && (
