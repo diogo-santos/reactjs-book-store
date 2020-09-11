@@ -7,9 +7,9 @@ import { getBooks, deleteBook } from "../services/BookService";
 import BookList from "./BookList";
 import Pagination from "react-js-pagination";
 import DropDown from "./DropDown";
-import Modal from './Modal';
-import BookView from './BookView';
-import Alert from './Alert';
+import Modal from "./Modal";
+import BookView from "./BookView";
+import Alert from "react-bootstrap/Alert";
 
 const SORT_OPTIONS = [
   { text: "Title", value: "title" },
@@ -46,12 +46,6 @@ class BookSearch extends Component {
   componentDidMount() {
     this.fetchBooks();
   }
-  handleErrors(response) {
-    if (!response.ok) {
-      throw Error(response.statusText);
-    }
-    return response;
-  }
   handleCloseAlert() {
     this.setState({
       alertMessage: ""
@@ -59,7 +53,6 @@ class BookSearch extends Component {
   }
   fetchBooks() {
     getBooks(this.state.pageNumber, this.state.pageSize, this.state.sortBy)
-      .then(this.handleErrors)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
@@ -106,14 +99,11 @@ class BookSearch extends Component {
   }
   handleDeleteBook(id) {
     deleteBook(id)
-      .then(this.handleErrors)
       .then(response => {
-        if (response.ok) {
-          if (this.state.books.length === 1) {
-            this.handlePageChange(this.state.pageNumber - 1);
-          } else {
-            this.fetchBooks();
-          }
+        if (this.state.books.length === 1) {
+          this.handlePageChange(this.state.pageNumber - 1);
+        } else {
+          this.fetchBooks();
         }
       })
       .catch(() => {
