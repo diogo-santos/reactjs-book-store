@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Modal from "../Modal";
-import BookView from "../BookView";
+import Modal from "../components/Modal";
+import BookView from "../components/BookView";
 
 test("renders post data", () => {
   const mockBook = { 

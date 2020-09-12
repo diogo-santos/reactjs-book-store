@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import BookList from "../BookList";
+import BookList from "../components/BookList";
 
 test("renders post data", () => {
   const mockBooks = {
@@ -17,7 +17,7 @@ test("renders post data", () => {
   };
 
   const { getByText, getByTestId } = render(
-      <BookList 
+      <BookList
         books={mockBooks.books}
         onView={()=> jest.mock()}
         onDelete={()=> jest.mock()}
