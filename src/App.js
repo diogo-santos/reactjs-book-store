@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/Header';
 import BookSearch from './components/BookSearch';
+import BookSearchWeb from './components/BookSearchWeb';
 
 class App extends Component {
   constructor(props) {
@@ -24,8 +25,11 @@ class App extends Component {
           title="Book Store App"
           onSelect={this.handleMenu}
         />
-        { this.state.menu === 'StoreSearch' && (
-          <BookSearch />
+        { this.state.menu === 'WebSearch' && (<
+          BookSearchWeb />
+        )}
+        { this.state.menu === 'StoreSearch' && (<
+          BookSearch />
         )}
       </div>
     );

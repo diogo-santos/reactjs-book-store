@@ -38,14 +38,14 @@ function BookList(props) {
                   Delete Book
                 </button>
               )}
-              {(props.onSelect) && (
+              {(props.onStore) && (
                 <button
                   type="button"
-                  data-testid="view-book"
+                  data-testid="store-book"
                   className={`btn btn-primary active btn-sm`}
-                  onClick={() => props.onSelect(book)}
+                  onClick={() => props.onStore(book)}
                 >
-                  Select
+                  Store
                 </button>
               )}
             </div>
