@@ -4,12 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { getBooks, deleteBook } from "../services/BookService";
 
-import BookList from "./BookList";
-import Pagination from "react-js-pagination";
-import DropDown from "./DropDown";
-import Modal from "./Modal";
-import BookView from "./BookView";
-import Alert from "./Alert";
+import BookList from './BookList';
+import Pagination from 'react-js-pagination';
+import DropDown from './DropDown';
+import Modal from './Modal';
+import BookView from './BookView';
+import Alert from './Alert';
 
 const SORT_OPTIONS = [
   { text: "Title", value: "title" },
