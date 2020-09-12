@@ -9,13 +9,13 @@ import Pagination from "react-js-pagination";
 import DropDown from "./DropDown";
 import Modal from "./Modal";
 import BookView from "./BookView";
-import Alert from "react-bootstrap/Alert";
+import Alert from "./Alert";
 
 const SORT_OPTIONS = [
   { text: "Title", value: "title" },
   { text: "Author", value: "author" },
   { text: "Category", value: "category" },
-  { text: "Publication date", value: "publicationDate" }
+  { text: "Published date", value: "publishedDate" }
 ];
 
 const PAGE_SIZE_OPTIONS = [
@@ -32,7 +32,7 @@ class BookSearch extends Component {
       totalElements: 0,
       pageNumber: 1,
       pageSize: 5,
-      sortBy: "publicationDate",
+      sortBy: "publishedDate",
       bookView: {},
       alertMessage: ""
     };
