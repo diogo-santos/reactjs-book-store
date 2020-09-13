@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      menu: ""
+      menu: 'WebSearch'
     };
     this.handleMenu = this.handleMenu.bind(this);
   }
@@ -25,11 +25,11 @@ class App extends Component {
           title="Book Store App"
           onSelect={this.handleMenu}
         />
-        { this.state.menu === 'WebSearch' && (<
-          BookSearchWeb />
+        { this.state.menu === 'WebSearch' && (
+          <BookSearchWeb />
         )}
-        { this.state.menu === 'StoreSearch' && (<
-          BookSearch />
+        { this.state.menu === 'StoreSearch' && (
+          <BookSearch />
         )}
       </div>
     );
