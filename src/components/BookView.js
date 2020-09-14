@@ -11,10 +11,10 @@ function BookView(props) {
       <div className="p-2">
         <div>Author <span className="text-muted">{props.book.author}</span></div>
         <div>Category <span className="text-muted">{props.book.category}</span></div>
-        <div>Published Date 
+        <div>Published on
           <span className="text-muted ml-1">
             {props.book.publishedDate && props.book.publishedDate.length === 10
-              ? moment(props.book.publishedDate, "YYYY-MM-DD").format('DD/MM/YYYY')
+              ? moment(props.book.publishedDate, "YYYY-MM-DD").format('YYYY')
               : props.book.publishedDate
             }
           </span>

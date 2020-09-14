@@ -1,4 +1,5 @@
 import React from "react";
+import moment from 'moment';
 import noCoverThumb from "../images/no_cover_thumb.gif";
 
 function BookList(props) {
@@ -13,8 +14,16 @@ function BookList(props) {
             <h6>{book.title}</h6>
             <div>Author <span className="text-muted">{book.author}</span></div>
             <div>Category <span className="text-muted">{book.category}</span></div>
+            <div>Published on
+              <span className="text-muted ml-1">
+                {book.publishedDate && book.publishedDate.length === 10
+                  ? moment(book.publishedDate, "YYYY-MM-DD").format('YYYY')
+                  : book.publishedDate
+                }
+              </span>
+            </div>
             <div className="d-flex flex-row mt-2">
-              {props.onView && (
+            {props.onView && (
                 <button
                   type="button"
                   data-testid="view-book"
@@ -38,15 +47,18 @@ function BookList(props) {
                   Delete Book
                 </button>
               )}
-              {(props.onStore) && (
+              {props.onStore && (
                 <button
                   type="button"
                   data-testid="store-book"
-                  className={`btn btn-primary active btn-sm`}
-                  onClick={() => props.onStore(book)}
+                  className="btn btn-primary btn-sm mr-2"
+                  onClick={() => props.onStore(book, i)}
                 >
                   Store
                 </button>
+              )}
+              {props.onStore && props.storedBooks.includes(i) && (
+                <span className="text-success">Imported to the Book Store</span>
               )}
             </div>
           </div>

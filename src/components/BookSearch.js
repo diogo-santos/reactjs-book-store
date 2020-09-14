@@ -15,7 +15,7 @@ const SORT_OPTIONS = [
   { text: "Title", value: "title" },
   { text: "Author", value: "author" },
   { text: "Category", value: "category" },
-  { text: "Published date", value: "publishedDate" }
+  { text: "Date", value: "publishedDate" }
 ];
 
 const PAGE_SIZE_OPTIONS = [
