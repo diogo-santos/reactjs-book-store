@@ -41,8 +41,7 @@ class BookSearchWeb extends Component {
         });
         this.setState({ books });
       })
-      .catch((e) => { 
-        console.log(e);
+      .catch((e) => {
         this.setState({
           alertMessage: "It was not possible to fetch books from web. Please, try again later"
         });
@@ -50,7 +49,6 @@ class BookSearchWeb extends Component {
     }
   }
   handleStoreBook = (book, index) => {
-    console.log(book);
     if (book) {
       createBook(book)
       .then((response) => {
@@ -60,8 +58,7 @@ class BookSearchWeb extends Component {
           this.setState({ storedBooks });
         }
       })
-      .catch((e) => { 
-        console.log(e);
+      .catch(() => {
         this.setState({
           alertMessage: "It was not possible to store this book. Please, try again later"
         });

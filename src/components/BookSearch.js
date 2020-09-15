@@ -152,7 +152,7 @@ class BookSearch extends Component {
               activePage={this.state.pageNumber}
               itemsCountPerPage={this.state.pageSize}
               totalItemsCount={this.state.totalElements}
-              pageRangeDisplayed={5}
+              pageRangeDisplayed={4}
               itemClass="page-item"
               linkClass="page-link"
               onChange={this.handlePageChange}
