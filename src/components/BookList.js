@@ -15,7 +15,7 @@ function BookList(props) {
                 data-toggle="modal" data-target={`#${props.viewBookModalId}`}
                 onClick={() => props.onView(book.id)}
               >
-                View Book
+                View
               </button>
             )}
             {props.onDelete && (
@@ -28,7 +28,7 @@ function BookList(props) {
                   && props.onDelete(book.id)
                 }
               >
-                Delete Book
+                Delete
               </button>
             )}
             {props.onStore && (
