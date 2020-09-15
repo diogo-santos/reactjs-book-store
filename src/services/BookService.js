@@ -15,6 +15,16 @@ export async function getBooks(pageNumber, pageSize, sortBy) {
   return handleErrors(response);
 }
 
+export async function createBook(book) {
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(book)
+  });
+  
+  return handleErrors(response);
+}
+
 export async function deleteBook(id) {
   const url = `${API_URL}/${id}`;
   const response = await fetch(url, { method: 'DELETE' });

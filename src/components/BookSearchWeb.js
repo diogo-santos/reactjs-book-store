@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {getBooksFromWeb} from '../services/BookService';
+import {getBooksFromWeb, createBook} from '../services/BookService';
 
 import Alert from './Alert';
 import BookList from './BookList';
@@ -11,11 +11,12 @@ class BookSearchWeb extends Component {
     this.state = {
       books: [],
       query: "",
-      alertMessage: ""
+      alertMessage: "",
+      storedBooks: []
     };
 
     this.handleCloseAlert = this.handleCloseAlert.bind(this);
-    this.handleStore = this.handleStore.bind(this);
+    this.handleStoreBook = this.handleStoreBook.bind(this);
   }
   handleCloseAlert = () => {
     this.setState({ alertMessage: "" });
@@ -33,8 +34,7 @@ class BookSearchWeb extends Component {
               author: book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Undefined",
               category: book.volumeInfo.categories ? book.volumeInfo.categories.join(", ") : "Undefined",
               publishedDate: book.volumeInfo.publishedDate,
-              image: book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '',
-              selected: false
+              image: book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : null
             }
         });
         this.setState({ books });
@@ -43,6 +43,25 @@ class BookSearchWeb extends Component {
         console.log(e);
         this.setState({
           alertMessage: "It was not possible to fetch books from web. Please, try again later"
+        });
+      });
+    }
+  }
+  handleStoreBook = (book, index) => {
+    console.log(book);
+    if (book) {
+      createBook(book)
+      .then((response) => {
+        if (response.ok) {
+          let storedBooks = this.state.storedBooks;
+          storedBooks.push(index);
+          this.setState({ storedBooks });
+        }
+      })
+      .catch((e) => { 
+        console.log(e);
+        this.setState({
+          alertMessage: "It was not possible to store this book. Please, try again later"
         });
       });
     }
@@ -58,11 +77,6 @@ class BookSearchWeb extends Component {
   }
   handleSearch = () => {
     this.fetchBooksFromWeb(this.state.query);
-  }
-  handleStore = (book) => {
-    if (!book) {
-      // call store endpoint
-    }
   }
   render() {
     return (
@@ -94,7 +108,8 @@ class BookSearchWeb extends Component {
         </div>
         <BookList
           books={this.state.books}
-          onStore={this.handleStore}
+          onStore={this.handleStoreBook}
+          storedBooks={this.state.storedBooks}
         />
       </div>
     );
