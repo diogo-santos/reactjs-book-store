@@ -29,12 +29,14 @@ class BookSearchWeb extends Component {
         const books = !data.items
         ? []
         : data.items.map(book => {
+            let image = book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '';
+
             return {
               title: book.volumeInfo.title || "",
               author: book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Undefined",
               category: book.volumeInfo.categories ? book.volumeInfo.categories.join(", ") : "Undefined",
               publishedDate: book.volumeInfo.publishedDate,
-              image: book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : null
+              image: image.replace('http://', 'https://')
             }
         });
         this.setState({ books });

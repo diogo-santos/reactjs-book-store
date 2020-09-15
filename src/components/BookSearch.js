@@ -99,7 +99,7 @@ class BookSearch extends Component {
   }
   handleDeleteBook(id) {
     deleteBook(id)
-      .then(response => {
+      .then(() => {
         if (this.state.books.length === 1) {
           this.handlePageChange(this.state.pageNumber - 1);
         } else {
