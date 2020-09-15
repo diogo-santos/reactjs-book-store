@@ -9,6 +9,7 @@ function BookView(props) {
         <img src={props.book.image || noCoverThumb} width="128" alt="Front cover" />
       </div>
       <div className="p-2">
+        <h6>{props.book.title}</h6>
         <div>Author <span className="text-muted">{props.book.author}</span></div>
         <div>Category <span className="text-muted">{props.book.category}</span></div>
         <div>Published on
@@ -19,6 +20,7 @@ function BookView(props) {
             }
           </span>
         </div>
+        {props.children}
       </div>
     </div>
   );
