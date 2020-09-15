@@ -98,7 +98,7 @@ class BookSearchWeb extends Component {
             onChange={this.handleOnInputChange}
             onKeyDown={this.handleOnInputKeyDown}
           />
-          <div className="input-group-append col-3">
+          <div className="input-group-append">
             <button
               type="button"
               className="btn btn-outline-primary"
