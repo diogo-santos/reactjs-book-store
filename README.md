@@ -21,10 +21,12 @@ npm start
 ```
 
 #### What I have developed
+- [ ] Search books from Web
+- [ ] Store searched books into books-api
 - [ ] Fetch all books from books-api
 - [ ] Pagination component
+- [ ] View Book Modal
 - [ ] Delete Book
-- [ ] View Book
 - [ ] Sort dropdown
 - [ ] Items per page dropdown
 - [ ] Testing components with react test library
