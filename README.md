@@ -8,9 +8,14 @@ Check it out at https://reactjs-book-store.herokuapp.com
 - [ ] Download the project or clone it from https://github.com/diogo-santos/reactjs-book-store
 - [ ] Download the Book API project from https://github.com/diogo-santos/spring-book-api and follow its instructions
 
+Execute the lines one by one
 ```
 cd reactjs-book-store
 echo "REACT_APP_API_URL=http://localhost:8080/books" >> .env.local
+echo "REACT_APP_GOOGLE_BOOKS_API_URL=https://www.googleapis.com/books/v1/volumes?q=" >> .env.local
+```
+
+```
 npm install
 npm start
 ```
