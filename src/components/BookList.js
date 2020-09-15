@@ -42,7 +42,7 @@ function BookList(props) {
               </button>
             )}
             {props.onStore && props.storedBooks.includes(i) && (
-              <span className="text-success">Book stored sucessfuly!</span>
+              <span className="text-success">Book stored!</span>
             )}
           </div>
         </BookView>
