@@ -12,16 +12,16 @@ import BookView from './BookView';
 import Alert from './Alert';
 
 const SORT_OPTIONS = [
-  { text: "Title", value: "title" },
-  { text: "Author", value: "author" },
-  { text: "Category", value: "category" },
-  { text: "Date", value: "publishedDate" }
+  { text: 'book_title', value: "title" },
+  { text: 'book_author', value: "author" },
+  { text: 'book_category', value: "category" },
+  { text: 'book_published_on', value: "publishedDate" }
 ];
 
 const PAGE_SIZE_OPTIONS = [
-  { text: "5 per page", value: 5 },
-  { text: "10 per page", value: 10 },
-  { text: "50 per page", value: 50 }
+  { text: '5 per page', value: 5 },
+  { text: '10 per page', value: 10 },
+  { text: '50 per page', value: 50 }
 ];
 
 class BookSearch extends Component {
@@ -32,9 +32,9 @@ class BookSearch extends Component {
       totalElements: 0,
       pageNumber: 1,
       pageSize: 5,
-      sortBy: "publishedDate",
+      sortBy: 'publishedDate',
       bookView: {},
-      alertMessage: ""
+      alertMessage: ''
     };
     this.handlePageChange = this.handlePageChange.bind(this);
     this.handleSortChange = this.handleSortChange.bind(this);
@@ -48,7 +48,7 @@ class BookSearch extends Component {
   }
   handleCloseAlert() {
     this.setState({
-      alertMessage: ""
+      alertMessage: ''
     })
   }
   fetchBooks() {
@@ -62,7 +62,7 @@ class BookSearch extends Component {
       })
       .catch(() => {
         this.setState({
-          alertMessage: "It was not possible to fetch books. Please, try again later"
+          alertMessage: 'book_search_error'
         })
       });
   }
@@ -108,7 +108,7 @@ class BookSearch extends Component {
       })
       .catch(() => {
         this.setState({
-          alertMessage: "It was not possible to delete. Please, try again later"
+          alertMessage: 'book_delete_error'
         })
       });;
   }
@@ -146,7 +146,7 @@ class BookSearch extends Component {
               label="Page size"
               options={PAGE_SIZE_OPTIONS}
               onChange={this.handlePageSizeChange}
-              class="mr-2"
+              space="mr-2"
             />
             <Pagination
               activePage={this.state.pageNumber}

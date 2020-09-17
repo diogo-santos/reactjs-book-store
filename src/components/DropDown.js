@@ -4,7 +4,7 @@ import { withTranslation } from 'react-i18next';
 function DropDown(props) {
   const { t } = props;
   return (
-    <div className="dropdown">
+    <div className={`dropdown ${props.space}`}>
       <button className={`btn btn-${props.class || 'secondary'} dropdown-toggle`}
         type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {t(props.label)}

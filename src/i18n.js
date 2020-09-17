@@ -26,9 +26,9 @@ const resources = {
       book_delete_error: "It was not possible to delete this book. Please, try again later",
       "Sort By": "Sort By",
       "Page size": "Page size",
-      "5 itens per page": "5 itens per page",
-      "10 itens per page": "10 itens per page",
-      "50 itens per page": "50 itens per page",
+      "5 per page": "5 per page",
+      "10 per page": "10 per page",
+      "50 per page": "50 per page",
       "Unknown": "Unknown"
     }
   },
@@ -54,9 +54,9 @@ const resources = {
       book_delete_error: "Ocorreu um problema ao remover este livro. Por favor, tente mais tarde",
       "Sort By": "Ordenar",
       "Page size": "Itens por pagina",
-      "5 itens per page": "5 itens",
-      "10 itens per page": "10 itens",
-      "50 itens per page": "50 itens",
+      "5 per page": "5",
+      "10 per page": "10",
+      "50 per page": "50",
       "Unknown": "Desconhecido"
     }
   }

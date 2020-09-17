@@ -1,11 +1,14 @@
 import React from 'react';
 import BookView from '../components/BookView';
 
+import { withTranslation } from 'react-i18next';
+
 function BookList(props) {
+  const { t } = props;
   return (
     <div className="mb-2">
       {props.books.map((book, i) => (
-        <BookView book={book}>
+        <BookView book={book} key={i}>
           <div className="d-flex flex-row mt-2">
             {props.onView && (
               <button
@@ -15,7 +18,7 @@ function BookList(props) {
                 data-toggle="modal" data-target={`#${props.viewBookModalId}`}
                 onClick={() => props.onView(book.id)}
               >
-                View
+                {t('book_view')}
               </button>
             )}
             {props.onDelete && (
@@ -24,11 +27,11 @@ function BookList(props) {
                 data-testid="delete-book"
                 className="btn btn-danger btn-sm mr-2"
                 onClick={() =>
-                  window.confirm(`Are you sure you wish to delete ${book.title}?`)
+                  window.confirm(t('book_delete_confirmation', {book: book.title}))
                   && props.onDelete(book.id)
                 }
               >
-                Delete
+                {t('book_delete')}
               </button>
             )}
             {props.onStore && (
@@ -38,11 +41,11 @@ function BookList(props) {
                 className="btn btn-primary btn-sm mr-2"
                 onClick={() => props.onStore(book, i)}
               >
-                Store
+                {t('book_store')}
               </button>
             )}
             {props.onStore && props.storedBooks.includes(i) && (
-              <span className="text-success">Book stored!</span>
+              <span className="text-success">{t('book_store_sucess')}</span>
             )}
           </div>
         </BookView>
@@ -51,4 +54,4 @@ function BookList(props) {
   );
 }
 
-export default BookList;
+export default withTranslation()(BookList);

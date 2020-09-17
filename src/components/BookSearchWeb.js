@@ -4,19 +4,23 @@ import {getBooksFromWeb, createBook} from '../services/BookService';
 
 import Alert from './Alert';
 import BookList from './BookList';
+import InputSearch from './InputSearch';
 
 class BookSearchWeb extends Component {
   constructor(props) {
     super();
     this.state = {
       books: [],
-      query: "",
-      alertMessage: "",
+      query: '',
+      alertMessage: '',
       storedBooks: []
     };
 
     this.handleCloseAlert = this.handleCloseAlert.bind(this);
     this.handleStoreBook = this.handleStoreBook.bind(this);
+    this.handleOnInputChange = this.handleOnInputChange.bind(this);
+    this.handleOnInputKeyDown = this.handleOnInputKeyDown.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
   handleCloseAlert = () => {
     this.setState({ alertMessage: "" });
@@ -29,12 +33,13 @@ class BookSearchWeb extends Component {
         const books = !data.items
         ? []
         : data.items.map(book => {
-            let image = book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '';
+            let image = book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail 
+              ? book.volumeInfo.imageLinks.thumbnail : '';
 
             return {
               title: book.volumeInfo.title || "",
-              author: book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Undefined",
-              category: book.volumeInfo.categories ? book.volumeInfo.categories.join(", ") : "Undefined",
+              author: book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown',
+              category: book.volumeInfo.categories ? book.volumeInfo.categories.join(', ') : 'Unknown',
               publishedDate: book.volumeInfo.publishedDate,
               image: image.replace('http://', 'https://')
             }
@@ -43,7 +48,7 @@ class BookSearchWeb extends Component {
       })
       .catch((e) => {
         this.setState({
-          alertMessage: "It was not possible to fetch books from web. Please, try again later"
+          alertMessage: 'book_search_error'
         });
       });
     }
@@ -60,7 +65,7 @@ class BookSearchWeb extends Component {
       })
       .catch(() => {
         this.setState({
-          alertMessage: "It was not possible to store this book. Please, try again later"
+          alertMessage: 'book_store_error'
         });
       });
     }
@@ -85,26 +90,12 @@ class BookSearchWeb extends Component {
           message={this.state.alertMessage}
           onClose={this.handleCloseAlert}
         />
-        <div className="d-flex justify-content-left mb-2">
-          <input 
-            type="text" 
-            className="form-control col-9 col-sm-6 col-md-5 col-lg-4 mr-2" 
-            placeholder="Search book from Web" 
-            aria-label="Book search"
-            aria-describedby="basic-addon2"
-            onChange={this.handleOnInputChange}
-            onKeyDown={this.handleOnInputKeyDown}
-          />
-          <div className="input-group-append">
-            <button
-              type="button"
-              className="btn btn-outline-primary"
-              onClick={this.handleSearch} 
-            >
-              Search
-            </button>
-          </div>
-        </div>
+        <InputSearch
+          placeholder={'book_search_input'}
+          onInputChange={this.handleOnInputChange}
+          onInputKeyDown={this.handleOnInputKeyDown}
+          onSearch={this.handleSearch}
+        />
         <BookList
           books={this.state.books}
           onStore={this.handleStoreBook}
