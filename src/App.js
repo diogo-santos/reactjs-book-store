@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header
-          title="Book Store App"
+          title="app_name"
           onSelect={this.handleMenu}
         />
         { this.state.menu === 'WebSearch' && (

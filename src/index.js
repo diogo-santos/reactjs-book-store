@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import "./i18n";
+
 /*eslint-disable no-unused-vars*/
 import $ from 'jquery';
 import Popper from 'popper.js';
