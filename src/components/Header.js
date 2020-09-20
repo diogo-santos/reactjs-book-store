@@ -24,7 +24,7 @@ class Header extends Component {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
+          <div className="navbar-nav mr-auto">
             <button type="button"
               onClick={() => this.props.onSelect('WebSearch')}
               className="nav-item nav-link btn btn-light mr-1"
